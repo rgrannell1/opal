@@ -77,8 +77,8 @@ func (conn *OpalDb) GetHashes(fpath string) (string, string, error) {
 
 	err := row.Scan(&hash)
 	if err != nil {
-		if err != sql.ErrNoRows {
-			return "", "", err
+		if err == sql.ErrNoRows {
+			return "", "", nil
 		}
 	}
 
@@ -91,10 +91,15 @@ func (conn *OpalDb) GetHashes(fpath string) (string, string, error) {
 
 	err = opalRow.Scan(&processedHash)
 	if err != nil {
-		if err != sql.ErrNoRows {
-			return "", "", err
+		if err == sql.ErrNoRows {
+			return "", "", nil
 		}
 	}
 
 	return hash, processedHash, nil
+}
+
+func (conn *OpalDb) MarkComplete(notes []*ObsidianNote) error {
+	// copy hashes across
+	return nil
 }

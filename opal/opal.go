@@ -34,13 +34,16 @@ func Opal(args *OpalArgs) error {
 		return err
 	}
 
-	if err := vault.FixFrontmatter(conn); err != nil {
+	notes, err := vault.ListModifiedMarkdown(conn)
+	if err := vault.FixFrontmatter(notes, conn); err != nil {
 		return err
 	}
 
-	if err := vault.FixTitle(conn); err != nil {
+	if err := vault.FixTitle(notes, conn); err != nil {
 		return err
 	}
+
+	err = conn.MarkComplete(notes)
 
 	return nil
 }

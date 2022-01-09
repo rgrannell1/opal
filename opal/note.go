@@ -1,6 +1,8 @@
 package main
 
 import (
+	"errors"
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -19,14 +21,15 @@ type ObsidianNote struct {
  * Construct an Obsidian note representation
  */
 func NewObsidianNote(dpath string, fpath string) (*ObsidianNote, error) {
-	parts := strings.SplitN(fpath, " - ", 1)
+	baseName := strings.TrimPrefix(fpath, dpath+"/")
+	parts := strings.SplitN(baseName, " - ", 2)
 
 	if len(parts) != 2 {
-		return &ObsidianNote{}, nil
+		return &ObsidianNote{}, errors.New("invalid parts length: len(" + fmt.Sprint(len(parts)) + ") for name " + baseName)
 	}
 
-	name := parts[0]
-	date, err := strconv.Atoi(parts[1])
+	name := parts[1]
+	date, err := strconv.Atoi(parts[0])
 
 	if err != nil {
 		return &ObsidianNote{}, err

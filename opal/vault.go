@@ -35,8 +35,11 @@ func (vault *ObsidianVault) ListModifiedMarkdown(conn *OpalDb) ([]*ObsidianNote,
 		}
 
 		changed, err := note.Changed(conn)
+		if err != nil {
+			return modified, err
+		}
 
-		if changed == true {
+		if changed {
 			modified = append(modified, note)
 		}
 	}
@@ -48,17 +51,8 @@ func (vault *ObsidianVault) ListModifiedMarkdown(conn *OpalDb) ([]*ObsidianNote,
  * Fix frontmatter for all markdown files in a vault
  *
  */
-func (vault *ObsidianVault) FixFrontmatter(conn *OpalDb) error {
-	notes, err := vault.ListModifiedMarkdown(conn)
-	if err != nil {
-		return err
-	}
-
+func (vault *ObsidianVault) FixFrontmatter(notes []*ObsidianNote, conn *OpalDb) error {
 	for _, note := range notes {
-		if err != nil {
-			return err
-		}
-
 		if err := note.FixFrontmatter(conn); err != nil {
 			return err
 		}
@@ -71,17 +65,8 @@ func (vault *ObsidianVault) FixFrontmatter(conn *OpalDb) error {
  * Fix titles for all markdown files
  *
  */
-func (vault *ObsidianVault) FixTitle(conn *OpalDb) error {
-	md, err := vault.ListModifiedMarkdown(conn)
-	if err != nil {
-		return err
-	}
-
-	for _, note := range md {
-		if err != nil {
-			return err
-		}
-
+func (vault *ObsidianVault) FixTitle(notes []*ObsidianNote, conn *OpalDb) error {
+	for _, note := range notes {
 		if err := note.FixTitle(conn); err != nil {
 			return err
 		}
