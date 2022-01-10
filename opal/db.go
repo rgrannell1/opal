@@ -100,6 +100,45 @@ func (conn *OpalDb) GetHashes(fpath string) (string, string, error) {
 }
 
 func (conn *OpalDb) MarkComplete(notes []*ObsidianNote) error {
-	// copy hashes across
 	return nil
+}
+
+func (conn *OpalDb) GetFrontmatter() error {
+	return nil
+}
+
+func (conn *OpalDb) ListBookmarks() ([]*Bookmark, error) {
+	bookmarks := make([]*Bookmark, 0)
+
+	rows, err := conn.Db.Query(`SELECT description, extended, hash, href, meta, shared, tags, time, toread FROM pinboard_bookmark`)
+	if err != nil {
+		return bookmarks, err
+	}
+
+	for rows.Next() {
+		bookmark := Bookmark{}
+		err := rows.Scan(
+			&bookmark.description,
+			&bookmark.extended,
+			&bookmark.hash,
+			&bookmark.href,
+			&bookmark.meta,
+			&bookmark.shared,
+			&bookmark.tags,
+			&bookmark.time,
+			&bookmark.toread)
+
+		if err != nil {
+			return bookmarks, err
+		}
+
+		bookmarks = append(bookmarks, &bookmark)
+	}
+
+	err = rows.Close()
+	if err != nil {
+		return bookmarks, err
+	}
+
+	return bookmarks, err
 }

@@ -1,0 +1,20 @@
+---
+tags: []
+bookmark_hash: {{.Hash}}
+---
+# {{ .Date }} - {{.Description}}
+---
+
+- [[202201101935 - Pinboard Bookmarks|Pinboard Bookmarks]]
+
+```!pinboard
+href:        "{{.Href}}"
+description: "{{.Description}}"
+extended:    "{{.Extended}}"
+hash:        "{{.Hash}}"
+meta:        "{{.Meta}}"
+shared:      "{{.Shared}}"
+tags:        "{{.Tags}}"
+time:        "{{.Time}}"
+toread:      "{{.Toread}}"
+```

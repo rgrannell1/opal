@@ -44,6 +44,14 @@ func Opal(args *OpalArgs) error {
 	}
 
 	err = conn.MarkComplete(notes)
+	if err != nil {
+		return err
+	}
+
+	err = SyncBookmarks("./template.txt", &vault, conn)
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
