@@ -3,6 +3,8 @@ package main
 import (
 	"os"
 	"path/filepath"
+
+	diatom "github.com/rgrannell1/diatom/pkg"
 )
 
 type OpalArgs struct {
@@ -23,6 +25,15 @@ func Opal(args *OpalArgs) error {
 	}
 
 	dbpath := filepath.Join(home, ".diatom.sqlite")
+
+	diatomArgs := diatom.DiatomArgs{
+		Dir:    args.fpath,
+		DBPath: dbpath,
+	}
+	err = diatom.Diatom(&diatomArgs)
+	if err != nil {
+		return err
+	}
 
 	conn, err := NewOpalDb(dbpath)
 	if err != nil {
