@@ -45,7 +45,7 @@ func (conn *OpalDb) CreateTables() error {
  *
  */
 func NewOpalDb(fpath string) (*OpalDb, error) {
-	db, err := sql.Open("sqlite3", fpath)
+	db, err := sql.Open("sqlite3", "file:"+fpath+"?_foreign_keys=true&_busy_timeout=10000&_journal_mode=WAL")
 	if err != nil {
 		return &OpalDb{}, err
 	}
@@ -107,12 +107,17 @@ func (conn *OpalDb) GetFrontmatter() error {
 	return nil
 }
 
-func (conn *OpalDb) ListBookmarks() ([]*Bookmark, error) {
+func (conn *OpalDb) ListAbsentBookmarks(hashes []string) ([]*Bookmark, error) {
 	bookmarks := make([]*Bookmark, 0)
 
 	rows, err := conn.Db.Query(`SELECT description, extended, hash, href, meta, shared, tags, time, toread FROM pinboard_bookmark`)
 	if err != nil {
 		return bookmarks, err
+	}
+
+	set := map[string]bool{}
+	for _, hash := range hashes {
+		set[hash] = true
 	}
 
 	for rows.Next() {
@@ -132,7 +137,9 @@ func (conn *OpalDb) ListBookmarks() ([]*Bookmark, error) {
 			return bookmarks, err
 		}
 
-		bookmarks = append(bookmarks, &bookmark)
+		if _, ok := set[bookmark.hash]; !ok {
+			bookmarks = append(bookmarks, &bookmark)
+		}
 	}
 
 	err = rows.Close()

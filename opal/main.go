@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/docopt/docopt-go"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -9,7 +12,8 @@ import (
 func main() {
 	opts, err := docopt.ParseDoc(Usage())
 	if err != nil {
-		panic(err)
+		fmt.Printf("%+v\n", err)
+		os.Exit(1)
 	}
 
 	fpath, _ := opts.String("<fpath>")
@@ -22,6 +26,7 @@ func main() {
 	err = Opal(args)
 
 	if err != nil {
-		panic(err)
+		fmt.Printf("%+v\n", err)
+		os.Exit(1)
 	}
 }

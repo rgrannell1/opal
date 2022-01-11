@@ -28,10 +28,15 @@ func (vault *ObsidianVault) ListModifiedMarkdown(conn *OpalDb) ([]*ObsidianNote,
 	}
 
 	for _, fpath := range fpaths {
-		note, err := NewObsidianNote(vault.dpath, fpath)
+		note := NewObsidianNote(vault.dpath, fpath)
 
+		exists, err := note.Exists()
 		if err != nil {
 			return modified, err
+		}
+
+		if !exists {
+			continue
 		}
 
 		changed, err := note.Changed(conn)

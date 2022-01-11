@@ -3,12 +3,14 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"math/rand"
 	"os"
 	"path/filepath"
 	"regexp"
 	"text/template"
 	"time"
 
+	"github.com/pkg/errors"
 	"gopkg.in/yaml.v3"
 )
 
@@ -41,7 +43,7 @@ func LoadBookmarkTemplate(fpath string) (*template.Template, error) {
  *
  */
 func (book *Bookmark) Write(vault *ObsidianVault, template *template.Template) error {
-	date := time.Now().Format("20060101") + "0000"
+	date := time.Now().Format("20060101") + fmt.Sprintf("%04d", rand.Intn(10000))
 
 	view := struct {
 		Date        string
@@ -87,9 +89,14 @@ func (book *Bookmark) Write(vault *ObsidianVault, template *template.Template) e
 	fname := date + " - " + fragment[0:limit] + ".md"
 	fpath := filepath.Join(vault.dpath, "pinboard-bookmarks", fname)
 
-	err = os.WriteFile(fpath, buf.Bytes(), 0644)
+	err = os.MkdirAll(filepath.Join(vault.dpath, "pinboard-bookmarks"), 0700)
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed creating pinboard-bookmarks")
+	}
+
+	err = os.WriteFile(fpath, buf.Bytes(), 0700)
+	if err != nil {
+		return errors.Wrap(err, "failed writing bookmark to file")
 	}
 
 	return nil
@@ -126,10 +133,12 @@ func GetPresentBookmarkHashes(conn *OpalDb) ([]string, error) {
 		fm := Frontmatter{}
 		err = yaml.Unmarshal([]byte(content), &fm)
 		if err != nil {
-			return hashes, err
+			continue
 		}
 
-		hashes = append(hashes, content)
+		if len(fm.BookmarkHash) > 0 {
+			hashes = append(hashes, fm.BookmarkHash)
+		}
 	}
 
 	return hashes, nil
@@ -145,16 +154,17 @@ func SyncBookmarks(templatePath string, vault *ObsidianVault, conn *OpalDb) erro
 		return err
 	}
 
-	bookmarks, err := conn.ListBookmarks()
-	if err != nil {
-		return err
-	}
-
 	hashes, err := GetPresentBookmarkHashes(conn)
 	if err != nil {
 		return err
 	}
-	fmt.Print(hashes)
+
+	bookmarks, err := conn.ListAbsentBookmarks(hashes)
+	if err != nil {
+		return err
+
+	}
+	fmt.Println(len(bookmarks))
 
 	// write bookmarks to Obsidian
 	for _, bookmark := range bookmarks {

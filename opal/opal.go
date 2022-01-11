@@ -34,6 +34,7 @@ func Opal(args *OpalArgs) error {
 		return err
 	}
 
+	// list modified files and modify them
 	notes, err := vault.ListModifiedMarkdown(conn)
 	if err := vault.FixFrontmatter(notes, conn); err != nil {
 		return err
@@ -48,6 +49,7 @@ func Opal(args *OpalArgs) error {
 		return err
 	}
 
+	// generate bookmark files using coppermind and diatom data
 	err = SyncBookmarks("./template.txt", &vault, conn)
 	if err != nil {
 		return err

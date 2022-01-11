@@ -1,6 +1,6 @@
 ---
 tags: []
-bookmark_hash: {{.Hash}}
+bookmark_hash: "{{.Hash}}"
 ---
 # {{ .Date }} - {{.Description}}
 ---

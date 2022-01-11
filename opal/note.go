@@ -2,7 +2,7 @@ package main
 
 import (
 	"errors"
-	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -20,19 +20,19 @@ type ObsidianNote struct {
 /*
  * Construct an Obsidian note representation
  */
-func NewObsidianNote(dpath string, fpath string) (*ObsidianNote, error) {
+func NewObsidianNote(dpath string, fpath string) *ObsidianNote {
 	baseName := strings.TrimPrefix(fpath, dpath+"/")
 	parts := strings.SplitN(baseName, " - ", 2)
 
 	if len(parts) != 2 {
-		return &ObsidianNote{}, errors.New("invalid parts length: len(" + fmt.Sprint(len(parts)) + ") for name " + baseName)
+		return &ObsidianNote{}
 	}
 
 	name := parts[1]
 	date, err := strconv.Atoi(parts[0])
 
 	if err != nil {
-		return &ObsidianNote{}, err
+		return &ObsidianNote{}
 	}
 
 	return &ObsidianNote{
@@ -40,7 +40,7 @@ func NewObsidianNote(dpath string, fpath string) (*ObsidianNote, error) {
 		dpath: dpath,
 		name:  name,
 		date:  date,
-	}, nil
+	}
 }
 
 /*
@@ -118,4 +118,17 @@ func (note *ObsidianNote) Changed(conn *OpalDb) (bool, error) {
 	}
 
 	return fileHash != processedHash, nil
+}
+
+func (note *ObsidianNote) Exists() (bool, error) {
+	_, err := os.Stat(note.fpath)
+	if err == nil {
+		return true, nil
+	}
+
+	if errors.Is(err, os.ErrNotExist) {
+		return false, nil
+	}
+
+	return false, err
 }
