@@ -162,9 +162,7 @@ func SyncBookmarks(templatePath string, vault *ObsidianVault, conn *OpalDb) erro
 	bookmarks, err := conn.ListAbsentBookmarks(hashes)
 	if err != nil {
 		return err
-
 	}
-	fmt.Println(len(bookmarks))
 
 	// write bookmarks to Obsidian
 	for _, bookmark := range bookmarks {
