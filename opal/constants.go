@@ -1,4 +1,4 @@
-package main
+package opal
 
 /*
  * Construct the usage documentation for Opal

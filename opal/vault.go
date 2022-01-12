@@ -1,4 +1,4 @@
-package main
+package opal
 
 import (
 	"path/filepath"

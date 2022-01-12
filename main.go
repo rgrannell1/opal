@@ -7,6 +7,7 @@ import (
 	"github.com/docopt/docopt-go"
 
 	_ "github.com/mattn/go-sqlite3"
+	opal "github.com/rgrannell1/opal"
 )
 
 func main() {
@@ -18,12 +19,11 @@ func main() {
 
 	fpath, _ := opts.String("<fpath>")
 
-	args := &OpalArgs{
+	err = opal.Opal(&opal.OpalArgs{
 		fpath,
 		false,
 		true,
-	}
-	err = Opal(args)
+	})
 
 	if err != nil {
 		fmt.Printf("%+v\n", err)

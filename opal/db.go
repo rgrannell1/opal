@@ -1,4 +1,4 @@
-package main
+package opal
 
 import (
 	"database/sql"
@@ -115,10 +115,7 @@ func (conn *OpalDb) ListAbsentBookmarks(hashes []string) ([]*Bookmark, error) {
 		return bookmarks, err
 	}
 
-	set := map[string]bool{}
-	for _, hash := range hashes {
-		set[hash] = true
-	}
+	set := NewSet(hashes)
 
 	for rows.Next() {
 		bookmark := Bookmark{}
@@ -137,7 +134,7 @@ func (conn *OpalDb) ListAbsentBookmarks(hashes []string) ([]*Bookmark, error) {
 			return bookmarks, err
 		}
 
-		if _, ok := set[bookmark.hash]; !ok {
+		if !set.Has(bookmark.hash) {
 			bookmarks = append(bookmarks, &bookmark)
 		}
 	}

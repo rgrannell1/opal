@@ -1,4 +1,4 @@
-package main
+package opal
 
 import (
 	"os"
@@ -61,7 +61,7 @@ func Opal(args *OpalArgs) error {
 	}
 
 	// generate bookmark files using coppermind and diatom data
-	err = SyncBookmarks("./template.txt", &vault, conn)
+	err = SyncBookmarks("../template.txt", &vault, conn)
 	if err != nil {
 		return err
 	}

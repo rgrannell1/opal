@@ -1,4 +1,4 @@
-package main
+package opal
 
 import (
 	"bytes"
@@ -27,8 +27,7 @@ type Bookmark struct {
 }
 
 func LoadBookmarkTemplate(fpath string) (*template.Template, error) {
-	content, err := os.ReadFile("./template.txt")
-
+	content, err := os.ReadFile(fpath)
 	tmpl := template.New("bookmark")
 
 	if err != nil {
