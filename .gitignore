@@ -1,4 +1,5 @@
 __pycache__
 *.cover
-opal/opal
+opal
 src/
+pkg
