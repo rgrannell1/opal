@@ -2,19 +2,19 @@
 tags: []
 bookmark_hash: '{{.Hash}}'
 ---
-# {{ .Date }} - {{.Description}}
+# {{.Description}}
 ---
 
 - [[202201101935 - Pinboard Bookmarks|Pinboard Bookmarks]]
 
 ```!pinboard
-href:        '{{.Href}}'
-description: '{{.Description}}'
-extended:    '{{.Extended}}'
-hash:        '{{.Hash}}'
-meta:        '{{.Meta}}'
-shared:      '{{.Shared}}'
-tags:        '{{.Tags}}'
-time:        '{{.Time}}'
-toread:      '{{.Toread}}'
+href:        {{ printf "%q" .Href}}
+description: {{ printf "%q" .Description}}
+extended:    {{ printf "%q" .Extended}}
+hash:        {{ printf "%q" .Hash}}
+meta:        {{ printf "%q" .Meta}}
+shared:      {{ printf "%q" .Shared}}
+tags:        {{ printf "%q" .Tags}}
+time:        {{ printf "%q" .Time}}
+toread:      {{ printf "%q" .Toread}}
 ```
