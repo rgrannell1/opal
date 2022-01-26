@@ -5,7 +5,7 @@ bookmark_hash: '{{.Hash}}'
 # {{.Description}}
 ---
 
-- [[202201101935 - Pinboard Bookmarks|Pinboard Bookmarks]]
+tags: #meta/pinboard
 
 ```!pinboard
 href:        {{ printf "%q" .Href}}
