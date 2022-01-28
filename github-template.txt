@@ -5,7 +5,7 @@ github_repo: {{ .Name }}
 # {{.Name }}
 ---
 
-tags: #meta/github/star
+#meta/github/star
 
 > {{ .Description }}
 

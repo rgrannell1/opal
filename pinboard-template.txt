@@ -5,7 +5,7 @@ bookmark_hash: '{{.Hash}}'
 # {{.Description | TitleCase}}
 ---
 
-tags: #meta/pinboard
+#meta/pinboard
 
 ```!pinboard
 href:        {{ printf "%q" .Href}}
