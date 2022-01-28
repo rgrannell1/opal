@@ -1,0 +1,19 @@
+---
+tags: []
+github_repo: {{ .Name }}
+---
+# {{.Name }}
+---
+
+tags: #meta/github/star
+
+> {{ .Description }}
+
+```!github
+name:        {{ printf "%q" .Name  }}
+description: {{ printf "%q" .Description}}
+login:       {{ printf "%q" .Login}}
+url:         {{ printf "%q" .Url}}
+language:    {{ printf "%q" .Language}}
+topics:      {{ .Topics}}
+```

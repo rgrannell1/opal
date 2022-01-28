@@ -2,7 +2,7 @@
 tags: []
 bookmark_hash: '{{.Hash}}'
 ---
-# {{.Description}}
+# {{.Description | TitleCase}}
 ---
 
 tags: #meta/pinboard
