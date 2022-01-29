@@ -4,3 +4,4 @@ opal
 src/
 pkg
 *.py
+.env

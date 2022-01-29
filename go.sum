@@ -119,6 +119,8 @@ github.com/googleapis/gax-go/v2 v2.0.5/go.mod h1:DWXyrwAJ9X0FpwwEdw+IPEYBICEFu5m
 github.com/hashicorp/golang-lru v0.5.0/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/hashicorp/golang-lru v0.5.1/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
+github.com/joho/godotenv v1.4.0 h1:3l4+N6zfMWnkbPEXKng2o2/MR5mSwTrBih4ZEkkz1lg=
+github.com/joho/godotenv v1.4.0/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
 github.com/jstemmer/go-junit-report v0.0.0-20190106144839-af01ea7f8024/go.mod h1:6v2b51hI/fHJwM22ozAgKL4VKDeJcHhJFhtBdhmNjmU=
 github.com/jstemmer/go-junit-report v0.9.1/go.mod h1:Brl9GWCQeLvo8nXZwPNNblvFj/XSXhF0NWZEnDohbsk=
 github.com/keybase/go-ps v0.0.0-20190827175125-91aafc93ba19/go.mod h1:hY+WOq6m2FpbvyrI93sMaypsttvaIL5nhVR92dTMUcQ=
@@ -138,8 +140,12 @@ github.com/rgrannell1/coppermind v0.0.0-20220123213113-e6f1d9ee27f2 h1:1FPYDLB4R
 github.com/rgrannell1/coppermind v0.0.0-20220123213113-e6f1d9ee27f2/go.mod h1:TWHLpp4VoPacrSztH9p5mTuTZHQMJ0fr1X4jrKo4APE=
 github.com/rgrannell1/coppermind v0.0.0-20220127225058-594626feede8 h1:pDBNiARZAE+IlKSRprEkrZS0LWn5x5kcktdDFsnz680=
 github.com/rgrannell1/coppermind v0.0.0-20220127225058-594626feede8/go.mod h1:gNxJm4qPSdgMVgGVYjk9/6OADhxnjUFSlLd4P6vm4k4=
+github.com/rgrannell1/coppermind v0.0.0-20220128193410-09dca2268dc3 h1:g5KGKcghAJu72Bab3CrqDHLecl5AjGLSOKCRrFRp5o4=
+github.com/rgrannell1/coppermind v0.0.0-20220128193410-09dca2268dc3/go.mod h1:gNxJm4qPSdgMVgGVYjk9/6OADhxnjUFSlLd4P6vm4k4=
 github.com/rgrannell1/diatom v0.0.0-20220125213636-825f54d784ab h1:n6kbvzugJLoYJy1GtRDO89LtOr9GjWNQSwHZdHqoiFU=
 github.com/rgrannell1/diatom v0.0.0-20220125213636-825f54d784ab/go.mod h1:0xSLlFH/xWP5LhDyXWA51lhpU/Qb1d8eKK93VFTCuSc=
+github.com/rgrannell1/diatom v0.0.0-20220127200148-2941142187bd h1:VAXRTKhhVlUFlkqcp/JHq/w91ZXLP5xDu30V41N/Lrs=
+github.com/rgrannell1/diatom v0.0.0-20220127200148-2941142187bd/go.mod h1:0xSLlFH/xWP5LhDyXWA51lhpU/Qb1d8eKK93VFTCuSc=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/shirou/gopsutil/v3 v3.21.9/go.mod h1:YWp/H8Qs5fVmf17v7JNZzA0mPJ+mS2e9JdiUF9LlKzQ=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=

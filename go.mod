@@ -6,8 +6,8 @@ require (
 	github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815
 	github.com/mattn/go-sqlite3 v1.14.11
 	github.com/pkg/errors v0.9.1
-	github.com/rgrannell1/coppermind v0.0.0-20220127225058-594626feede8
-	github.com/rgrannell1/diatom v0.0.0-20220125213636-825f54d784ab
+	github.com/rgrannell1/coppermind v0.0.0-20220128193410-09dca2268dc3
+	github.com/rgrannell1/diatom v0.0.0-20220127200148-2941142187bd
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
 )
 
@@ -19,6 +19,7 @@ require (
 	github.com/google/go-github v17.0.0+incompatible // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/gops v0.3.22 // indirect
+	github.com/joho/godotenv v1.4.0 // indirect
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect
 	golang.org/x/sys v0.0.0-20220114195835-da31bd327af9 // indirect
