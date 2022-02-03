@@ -53,13 +53,6 @@ func (note *ObsidianNote) UpdateFrontmatter() {
 }
 
 /*
- * Write updated frontmatter into a document
- */
-func (note *ObsidianNote) WriteFrontmatter() {
-
-}
-
-/*
  * Update a note's frontmatter with tags, title if the file
  * is unprocessed or the hash has changed since last processing
  */
@@ -147,6 +140,9 @@ func (note *ObsidianNote) Changed(conn *OpalDb) (bool, error) {
 	return fileHash != processedHash, nil
 }
 
+/*
+ *
+ */
 func (note *ObsidianNote) Exists() (bool, error) {
 	_, err := os.Stat(note.fpath)
 	if err == nil {

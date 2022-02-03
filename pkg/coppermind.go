@@ -18,6 +18,7 @@ import (
 
 /*
  * A Pinboard bookmark
+ *
  */
 type PinboardBookmark struct {
 	description string
@@ -31,10 +32,18 @@ type PinboardBookmark struct {
 	toread      string
 }
 
+/*
+ * Titlecase a string
+ *
+ */
 func TitleCase(arg string) (interface{}, error) {
 	return strings.Title(strings.ToLower(arg)), nil
 }
 
+/*
+ * Load a bookmark template from a file-path, with utility methods.
+ *
+ */
 func LoadBookmarkTemplate(fpath string) (*template.Template, error) {
 	content, err := os.ReadFile(fpath)
 	tmpl := template.New("bookmark").Funcs(template.FuncMap(map[string]interface{}{
@@ -76,6 +85,7 @@ func CreateDescription(book *PinboardBookmark) string {
 
 /*
  * Get a filename for a bookmark
+ *
  */
 func (book *PinboardBookmark) FileName() (string, error) {
 	reg, err := regexp.Compile("[^a-zA-Z0-9- |]+")
@@ -250,6 +260,9 @@ func SyncBookmarks(templatePath string, vault *ObsidianVault, conn *OpalDb) erro
 	return nil
 }
 
+/*
+ * Load a github star template from a file-path, with utility methods.
+ */
 func LoadGithubStarTemplate(fpath string) (*template.Template, error) {
 	content, err := os.ReadFile(fpath)
 	tmpl := template.New("github").Funcs(template.FuncMap(map[string]interface{}{
@@ -263,6 +276,9 @@ func LoadGithubStarTemplate(fpath string) (*template.Template, error) {
 	return tmpl.Parse(string(content))
 }
 
+/*
+ *
+ */
 func GetPresentGithubStars(conn *OpalDb) (*Set, error) {
 	set := NewSet([]string{})
 	frontmatter, err := GetFrontmatter(conn)
@@ -280,6 +296,9 @@ func GetPresentGithubStars(conn *OpalDb) (*Set, error) {
 	return set, nil
 }
 
+/*
+ *
+ */
 type StarredRepository struct {
 	Name        string
 	Description string
@@ -289,6 +308,10 @@ type StarredRepository struct {
 	Topics      string
 }
 
+/*
+ *
+ *
+ */
 func (repo *StarredRepository) Write(vault *ObsidianVault, template *template.Template) error {
 	date := time.Now().Format("20060102") + fmt.Sprintf("%04d", rand.Intn(10000))
 	view := struct {
@@ -362,6 +385,5 @@ func SyncGithubStars(templatePath string, vault *ObsidianVault, conn *OpalDb) er
 		}
 	}
 
-	// -- TODO
 	return nil
 }
