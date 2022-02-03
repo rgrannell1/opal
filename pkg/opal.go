@@ -77,10 +77,14 @@ func Opal(args *OpalArgs) error {
 		return err
 	}
 
-	//err = SyncGithubStars(filepath.Join(root, "./github-template.txt"), &vault, conn)
-	//if err != nil {
-	//	return err
-	//}
+	err = SyncGithubStars(filepath.Join(root, "./github-template.txt"), &vault, conn)
+	if err != nil {
+		return err
+	}
+
+	if err := vault.Validate(conn); err != nil {
+		return err
+	}
 
 	return nil
 }

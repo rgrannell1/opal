@@ -114,7 +114,6 @@ func (conn *OpalDb) GetFrontmatter() error {
 func (conn *OpalDb) ListAbsentBookmarks(hashes *Set) ([]*PinboardBookmark, error) {
 	bookmarks := make([]*PinboardBookmark, 0)
 
-	//
 	rows, err := conn.Db.Query(`
 	SELECT description, extended, hash, href, meta, shared, tags, time, toread FROM pinboard_bookmark
 	`)
@@ -190,4 +189,35 @@ func (conn *OpalDb) ListAbsentGithubStars(stars *Set) ([]*StarredRepository, err
 	}
 
 	return starred, err
+}
+
+/*
+ * Fetch the file hash, and opal hash
+ *
+ */
+func (conn *OpalDb) ListHashes() ([][]string, error) {
+	pairs := make([][]string, 0)
+
+	rows, err := conn.Db.Query(`select id, hash from file`)
+	if err != nil {
+		return pairs, err
+	}
+
+	for rows.Next() {
+		var fpath string
+		var hash string
+
+		if err := rows.Scan(&fpath, &hash); err != nil {
+			return pairs, err
+		}
+
+		pairs = append(pairs, []string{fpath, hash})
+	}
+
+	err = rows.Close()
+	if err != nil {
+		return pairs, err
+	}
+
+	return pairs, err
 }
