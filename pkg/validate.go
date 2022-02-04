@@ -7,7 +7,7 @@ import (
 
 /*
  * Assert no duplicate files (files with the same hash) are present. This can happen
- * if Opal is broken
+ * if Opal is broken & outputs duplicate files.
  *
  */
 func AssertNoDuplicates(conn *OpalDb) error {
@@ -16,20 +16,30 @@ func AssertNoDuplicates(conn *OpalDb) error {
 		return err
 	}
 
+	failed := false
+
 	ctr := NewCounter()
 	for _, pair := range hashes {
-		ctr.Add(pair[1], pair[0])
+		// -- don't complain about empty files
+		if pair[1] != "0" {
+			ctr.Add(pair[1], pair[0])
+		}
 	}
 
 	dupes := ctr.Duplicates()
 
 	if len(dupes) > 0 {
+		failed = true
 		for _, dupe := range ctr.Duplicates() {
 			fmt.Println(dupe)
 		}
 	}
 
-	return errors.New("files with duplicate hashes found; this indicates files were accidentally duplicated")
+	if failed {
+		return errors.New("files with duplicate hashes found; this indicates files were accidentally duplicated")
+	} else {
+		return nil
+	}
 }
 
 /*

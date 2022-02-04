@@ -18,11 +18,11 @@ require (
 	github.com/google/go-github v17.0.0+incompatible // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/gops v0.3.22 // indirect
-	github.com/rgrannell1/coppermind v0.0.0-20220129183502-4d29bcd0a453 // indirect
+	github.com/rgrannell1/coppermind v0.0.0-20220203214414-c64d007d926a // indirect
 	github.com/rgrannell1/diatom v0.0.0-20220201195046-317608ed6dc2 // indirect
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect
-	golang.org/x/sys v0.0.0-20220128215802-99c3d69c2c27 // indirect
+	golang.org/x/sys v0.0.0-20220204135822-1c1b9b1eba6a // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

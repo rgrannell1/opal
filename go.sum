@@ -139,6 +139,8 @@ github.com/rgrannell1/coppermind v0.0.0-20220128193410-09dca2268dc3 h1:g5KGKcghA
 github.com/rgrannell1/coppermind v0.0.0-20220128193410-09dca2268dc3/go.mod h1:gNxJm4qPSdgMVgGVYjk9/6OADhxnjUFSlLd4P6vm4k4=
 github.com/rgrannell1/coppermind v0.0.0-20220129183502-4d29bcd0a453 h1:XdRfa0Qbs0sRaF+DjhwRBcChIZrLl5XRDtU/oiaoA7I=
 github.com/rgrannell1/coppermind v0.0.0-20220129183502-4d29bcd0a453/go.mod h1:fYUKYC/F38416oRqogj48oZWe/tiuxfsCN0SKG3iyjc=
+github.com/rgrannell1/coppermind v0.0.0-20220203214414-c64d007d926a h1:zB0kOahGpKMQOpL4P9OyZJJL4QUz7WJqGqzvYQKKk38=
+github.com/rgrannell1/coppermind v0.0.0-20220203214414-c64d007d926a/go.mod h1:fYUKYC/F38416oRqogj48oZWe/tiuxfsCN0SKG3iyjc=
 github.com/rgrannell1/diatom v0.0.0-20220127200148-2941142187bd h1:VAXRTKhhVlUFlkqcp/JHq/w91ZXLP5xDu30V41N/Lrs=
 github.com/rgrannell1/diatom v0.0.0-20220127200148-2941142187bd/go.mod h1:0xSLlFH/xWP5LhDyXWA51lhpU/Qb1d8eKK93VFTCuSc=
 github.com/rgrannell1/diatom v0.0.0-20220201195046-317608ed6dc2 h1:ngsZvMePeUK3D65ODNXeHNUtmhz0q5eQG09YJZhuOjk=
@@ -267,6 +269,8 @@ golang.org/x/sys v0.0.0-20210816074244-15123e1e1f71/go.mod h1:oPkhp1MJrh7nUepCBc
 golang.org/x/sys v0.0.0-20210902050250-f475640dd07b/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20220128215802-99c3d69c2c27 h1:XDXtA5hveEEV8JB2l7nhMTp3t3cHp9ZpwcdjqyEWLlo=
 golang.org/x/sys v0.0.0-20220128215802-99c3d69c2c27/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+golang.org/x/sys v0.0.0-20220204135822-1c1b9b1eba6a h1:ppl5mZgokTT8uPkmYOyEUmPTr3ypaKkg5eFOGrAmxxE=
+golang.org/x/sys v0.0.0-20220204135822-1c1b9b1eba6a/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/text v0.0.0-20170915032832-14c0d48ead0c/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.1-0.20180807135948-17ff2d5776d2/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
