@@ -145,6 +145,8 @@ github.com/rgrannell1/diatom v0.0.0-20220127200148-2941142187bd h1:VAXRTKhhVlUFl
 github.com/rgrannell1/diatom v0.0.0-20220127200148-2941142187bd/go.mod h1:0xSLlFH/xWP5LhDyXWA51lhpU/Qb1d8eKK93VFTCuSc=
 github.com/rgrannell1/diatom v0.0.0-20220201195046-317608ed6dc2 h1:ngsZvMePeUK3D65ODNXeHNUtmhz0q5eQG09YJZhuOjk=
 github.com/rgrannell1/diatom v0.0.0-20220201195046-317608ed6dc2/go.mod h1:0xSLlFH/xWP5LhDyXWA51lhpU/Qb1d8eKK93VFTCuSc=
+github.com/rgrannell1/diatom v0.0.0-20220205193653-43213533f257 h1:CMULIFKMdxso0ue+831OM//79GjMI4Y0jkSHHck2EBo=
+github.com/rgrannell1/diatom v0.0.0-20220205193653-43213533f257/go.mod h1:0xSLlFH/xWP5LhDyXWA51lhpU/Qb1d8eKK93VFTCuSc=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/shirou/gopsutil/v3 v3.21.9/go.mod h1:YWp/H8Qs5fVmf17v7JNZzA0mPJ+mS2e9JdiUF9LlKzQ=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
