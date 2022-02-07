@@ -18,7 +18,7 @@ require (
 	github.com/google/go-github v17.0.0+incompatible // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/gops v0.3.22 // indirect
-	github.com/rgrannell1/coppermind v0.0.0-20220203214414-c64d007d926a // indirect
+	github.com/rgrannell1/coppermind v0.0.0-20220207215123-d38ebdd0b859 // indirect
 	github.com/rgrannell1/diatom v0.0.0-20220205193653-43213533f257 // indirect
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8 // indirect

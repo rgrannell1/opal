@@ -3,6 +3,7 @@ package opal
 import (
 	"errors"
 	"fmt"
+	"os"
 )
 
 /*
@@ -42,11 +43,42 @@ func AssertNoDuplicates(conn *OpalDb) error {
 	}
 }
 
+func AssertNoMissing(conn *OpalDb) error {
+	missing := []string{}
+
+	pairs, err := conn.ListHashes()
+	if err != nil {
+		return err
+	}
+
+	for _, pair := range pairs {
+		fpath := pair[0]
+
+		if _, err := os.Stat(fpath); errors.Is(err, os.ErrNotExist) {
+			missing = append(missing, fpath)
+		}
+	}
+
+	if len(missing) > 0 {
+		for _, fpath := range missing {
+			fmt.Println(fpath)
+		}
+
+		return errors.New(fmt.Sprint(len(missing)) + " files that do not exist present in diatom file table")
+	}
+
+	return nil
+}
+
 /*
  * Validate the Obsidian repository.
  *
  */
 func (vault *ObsidianVault) Validate(conn *OpalDb) error {
+	if err := AssertNoMissing(conn); err != nil {
+		return err
+	}
+
 	if err := AssertNoDuplicates(conn); err != nil {
 		return err
 	}

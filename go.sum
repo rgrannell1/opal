@@ -141,6 +141,8 @@ github.com/rgrannell1/coppermind v0.0.0-20220129183502-4d29bcd0a453 h1:XdRfa0Qbs
 github.com/rgrannell1/coppermind v0.0.0-20220129183502-4d29bcd0a453/go.mod h1:fYUKYC/F38416oRqogj48oZWe/tiuxfsCN0SKG3iyjc=
 github.com/rgrannell1/coppermind v0.0.0-20220203214414-c64d007d926a h1:zB0kOahGpKMQOpL4P9OyZJJL4QUz7WJqGqzvYQKKk38=
 github.com/rgrannell1/coppermind v0.0.0-20220203214414-c64d007d926a/go.mod h1:fYUKYC/F38416oRqogj48oZWe/tiuxfsCN0SKG3iyjc=
+github.com/rgrannell1/coppermind v0.0.0-20220207215123-d38ebdd0b859 h1:OyPBep3kJhrYDwZcNO4bH5ldhJtVjw9LKzpS7fi0KbE=
+github.com/rgrannell1/coppermind v0.0.0-20220207215123-d38ebdd0b859/go.mod h1:fYUKYC/F38416oRqogj48oZWe/tiuxfsCN0SKG3iyjc=
 github.com/rgrannell1/diatom v0.0.0-20220127200148-2941142187bd h1:VAXRTKhhVlUFlkqcp/JHq/w91ZXLP5xDu30V41N/Lrs=
 github.com/rgrannell1/diatom v0.0.0-20220127200148-2941142187bd/go.mod h1:0xSLlFH/xWP5LhDyXWA51lhpU/Qb1d8eKK93VFTCuSc=
 github.com/rgrannell1/diatom v0.0.0-20220201195046-317608ed6dc2 h1:ngsZvMePeUK3D65ODNXeHNUtmhz0q5eQG09YJZhuOjk=

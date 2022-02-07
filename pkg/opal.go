@@ -82,6 +82,16 @@ func Opal(args *OpalArgs) error {
 		return err
 	}
 
+	// update database information after opal modifications with a second call to diatom
+	err = diatom.Diatom(&diatom.DiatomArgs{
+		Dir:    args.Fpath,
+		DBPath: dbpath,
+	})
+
+	if err != nil {
+		return err
+	}
+
 	if err := vault.Validate(conn); err != nil {
 		return err
 	}
